@@ -3,10 +3,15 @@
     <h1>Welcome to FlaskTaskr.</h1>
     <h3>Please login to access your task list.</h3>
     <form action="/" method="post">
-        Username: <input type="text" name="username" value="{{ request.form.username }}">
-        Password: <input type="password" name="password" value=" {{ request.form.password }}">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.username.label }}: {{ form.username }} &nbsp; &nbsp;
+            {{ form.password.label }}: {{ form.password }} &nbsp; &nbsp;
+        </p>
+
         <input type="submit" value="Login">
     </form>
-    <p><em>Use 'admin' for the username and password.</em></p>
+    <br>
+    <p><em>Need an account? </em><a href="/register">Signup!!</a></p>
 {% endblock content %}
 
